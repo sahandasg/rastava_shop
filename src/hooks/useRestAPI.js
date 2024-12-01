@@ -1,6 +1,14 @@
 import {useEffect, useState} from 'react';
 import {httpService} from "../api/httpService.ts";
 
+/**
+ *
+ * @param {string} method - "GET", "POST", "PUT", "DELETE", "PATCH"
+ * @param {string} url request url like "/ users
+ * @param {{[index:string]:string|number}} queryParams
+ * @param {{[index:string]:string}} body
+ * @returns {{data: object, error: object, loading: boolean}}
+ */
 function useRestAPI(method, url, queryParams, body) {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
