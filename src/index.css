@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+    background: #1A1A1D;
+    box-sizing: border-box;
+}
+
+:root {
+    --main: #3B1C32;
+    --secondary: #6A1E55;
+    --third: #A64D79;
+    --bg: #1A1A1D;
+    --content:#ffff;
+}
