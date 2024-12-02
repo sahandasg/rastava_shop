@@ -1,6 +1,7 @@
 import Shop from "./views/Shop";
 import Login from "./views/Login";
 import AuthGuard from "./auth/AuthGuard";
+import PageNotFound from "./views/PageNotFound";
 
 
 const routes = [
@@ -13,6 +14,7 @@ const routes = [
             </AuthGuard>
         )
     },
+    {path: "/*", element: <PageNotFound/>}
 ]
 
 export default routes;
