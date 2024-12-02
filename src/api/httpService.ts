@@ -2,11 +2,13 @@ import {BaseConfig} from "../config";
 import axios from "axios";
 import Cookies from "js-cookie";
 
-const token = Cookies.get("token")
+const token = Cookies.get("Token")
 const instance = axios.create({
     baseURL: BaseConfig.domain,
     headers: {
         Authorization: `Token ${token}`,
+        "Accept": "application/json",
+        "Content-Type": "application/json"
     },
 });
 
