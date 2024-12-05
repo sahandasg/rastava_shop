@@ -29,7 +29,6 @@ function Shop(props) {
             .finally(() => setLoading(false))
     }, []);
 
-    console.log(error)
     return (
         <>
             <Header/>
