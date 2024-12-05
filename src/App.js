@@ -4,13 +4,12 @@ import routes from "./routes";
 import {AuthProvider} from "./contexts/AuthContext";
 
 function App() {
-        const router = useRoutes(routes)
+     const router = useRoutes(routes)
 
     return (
         <AuthProvider>
             {router}
         </AuthProvider>
-
     );
 }
 
