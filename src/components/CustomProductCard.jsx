@@ -5,6 +5,9 @@ import Skeleton from '@mui/material/Skeleton';
 import {styled} from "@mui/material/styles";
 import Alert from "@mui/material/Alert";
 
+import {useCartDispatch} from "../store/hooks.ts";
+import {addToCart} from "../store/cart-slice.ts";
+
 
 const CustomSkeleton = styled(Skeleton)(({theme}) => (
     {
@@ -25,6 +28,8 @@ const CustomAlert = styled(Alert)(({theme}) => (
 ));
 
 function CustomProductCard(props) {
+    const dispatch = useCartDispatch()
+
     const productId = window.location.href.split('/').slice(-1)
 
     const [loading, setLoading] = useState(true);
@@ -38,7 +43,13 @@ function CustomProductCard(props) {
             .finally(() => setLoading(false))
     }, []);
 
-    console.log(error)
+    const handleAddToCart = (data) => {
+        const id = data.id
+        const title = data.title
+        const price = data.price
+        const image = data.image
+        dispatch(addToCart({id, title, price, image}));
+    }
 
     return (
         <>
@@ -72,6 +83,7 @@ function CustomProductCard(props) {
                                                 <Rating name="read-only" value={data.rating.rate} readOnly/>
                                             </div>
                                             <button
+                                                onClick={() => handleAddToCart(data)}
                                                 className={"flex bg-third items-center justify-center w-full gap-4 rounded p-2"}>
                                                 <p className={"text-content"}>Add To Cart</p>
                                                 <p>

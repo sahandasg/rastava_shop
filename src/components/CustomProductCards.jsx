@@ -48,7 +48,7 @@ export default function CustomProductCards({loading, data}) {
                 {
                     loading ?
                         defaultCard.map((card) => (
-                            <Card sx={{width: 300, m: 2, p: 2}}>
+                            <Card sx={{width: 300, m: 2, p: 2}} key={Math.random()}>
                                 <Skeleton/>
                                 <Skeleton sx={{height: 300}}/>
                                 <Skeleton/>
